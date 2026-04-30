@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  mcp-pricing-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aetherops-mcp-pricing-server
+    ports:
+      - "8000:8000"
+    environment:
+      # Logging configuration
+      - LOG_LEVEL=INFO
+      
+      # Cache TTL (12 hours in seconds)
+      - CACHE_TTL=43200
+      
+      # AWS Configuration (using public API - no credentials needed)
+      - AWS_BULK_PRICE_URL=https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/index.json
+      
+      # Azure Configuration
+      - AZURE_RETAIL_API_URL=https://prices.azure.com/api/retail/prices
+      
+      # Scaleway Configuration (public API - no auth required)
+      - SCALEWAY_PRODUCTS_URL=https://api.scaleway.com/instance/v1/products/servers
+      - SCALEWAY_PRICING_DATA_URL=https://www.scaleway.com/en/pricing/data.json
+      
+      # EUR to USD exchange rate
+      - EUR_TO_USD_RATE=1.08
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 128M

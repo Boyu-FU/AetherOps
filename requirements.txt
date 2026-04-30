@@ -1,0 +1,21 @@
+# FastMCP - MCP Server Framework
+fastmcp>=2.0.0
+
+# HTTP Client for Azure and Scaleway APIs
+requests>=2.31.0
+
+# Data validation
+pydantic>=2.5.0
+
+# Environment variable management
+python-dotenv>=1.0.0
+
+# Async support
+aiohttp>=3.9.0
+
+# JSON parsing (for streaming large AWS JSON)
+ijson>=3.2.0
+
+# Testing
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
