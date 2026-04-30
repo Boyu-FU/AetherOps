@@ -27,9 +27,9 @@ class PriceNormalizer:
     
     # Region code mappings
     REGION_MAPPINGS = {
-        "eu": ["eu-", "france", "germany", "ireland", "paris", "frankfurt", 
-               "amsterdam", "warsaw", "sweden", "switzerland", "italy"],
-        "us": ["us-", "north-virginia", "oregon", "california"],
+        "eu": ["eu-", "france", "germany", "ireland", "paris", "par-", "frankfurt", 
+               "amsterdam", "ams-", "warsaw", "waw-", "sweden", "switzerland", "italy", "europe", "westeurope", "northeurope", "uksouth", "ukwest"],
+        "us": ["us-", "north-virginia", "oregon", "california", "ohio", "eastus", "westus", "centralus", "southcentralus", "westcentralus", "useast", "uswest", "virginia"],
     }
     
     def normalize_and_filter(
